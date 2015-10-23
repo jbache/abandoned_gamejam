@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>images/ground.png</file>
+        <file>ProgressBar.qml</file>
     </qresource>
 </RCC>

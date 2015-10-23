@@ -23,6 +23,7 @@ Window {
     }
 
     Rectangle {
+        id: ht2oRect
         width: 300
         height: 100
         anchors.bottom: parent.bottom
@@ -73,6 +74,13 @@ Window {
         Behavior on y { NumberAnimation {} }
     }
 
+    function mouseInsideItem(mouse, item) {
+        if ((mouse.x < (item.x + item.width)) && (mouse.x > item.x)
+                && (mouse.y < item.y + item.height) && (mouse.y> item.y)) {
+            return true
+        }
+        return false
+    }
 
     MouseArea {
         id: mouse
@@ -81,6 +89,12 @@ Window {
             player.x = mouse.x
             player.y = mouse.y
 
+            if (mouseInsideItem(mouse, potatoRect))
+                print ("Inside Potato!")
+            if (mouseInsideItem(mouse, ht2oRect))
+                print ("Inside H20!")
+            if (mouseInsideItem(mouse, entertainment))
+                print ("Inside Entertainment!")
         }
     }
 
@@ -108,16 +122,17 @@ Window {
             font.pixelSize: 30
             text: "Energy: "
         }
-        Rectangle {
-            width: 100
-            height: 20
-            color: "gray"
-            Rectangle {
-                height: parent.height
-                width: parent.width * energy
-                color: "yellow"
-            }
+        ProgressBar {
+            progress: energy
         }
+    }
+
+    Rectangle {
+        id: potatoRect
+        anchors.centerIn: parent
+        width: parent.width * 0.6
+        height: parent.height * 0.6
+        color: Qt.rgba(1, 1, 0, 0.5)
     }
 
     Rectangle {
