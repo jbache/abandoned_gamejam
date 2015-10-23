@@ -29,6 +29,25 @@ Item {
         color: "transparent"
         border.color: "white"
         border.width: 1
+        opacity: 0.7
+    }
+
+    property bool isCurrentActionItem: activeItem ? activeItem.title === actionItem.title : false
+    property real burnRate: 0.01
+
+    Timer {
+        id: consumetimer
+        interval: 100
+        running: isCurrentActionItem
+        repeat: true
+        onTriggered: {
+            if (energy > 0) {
+                energy -= burnRate;
+                progressbar.progress += burnRate;
+            } else {
+                energy = 0;
+            }
+        }
     }
 
     ProgressBar {
@@ -36,16 +55,6 @@ Item {
         width: parent.width
         anchors.bottom: parent.bottom
 
-        NumberAnimation on progress {
-            id: progressAnimation
-            running: activeItem ? activeItem.title === actionItem.title : false
-            from: 0
-            to: 1
-            duration: 10000
-            onStopped: {
-                finishedTask()
-            }
-        }
     }
 
 }
