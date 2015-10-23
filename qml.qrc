@@ -1,10 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>dino.png</file>
-        <file>ground.png</file>
-    </qresource>
-    <qresource prefix="/new/prefix1">
-        <file>ground.png</file>
+        <file>images/ground.png</file>
     </qresource>
 </RCC>

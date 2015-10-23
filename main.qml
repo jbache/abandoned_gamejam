@@ -9,7 +9,7 @@ Window {
 
     Image {
         anchors.fill: parent
-        source: "qrc:///ground.png"
+        source: "qrc:///images/ground.png"
     }
 
     Rectangle {
