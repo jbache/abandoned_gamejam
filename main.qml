@@ -10,6 +10,9 @@ Window {
     property int potatoes: 10
     property int h2o: 100
     property real energy: 0.5
+    property ActionItem activeItem: null
+
+    property var actionItems: [entertainment, potatoActionItem, h20]
 
     function endTurn() {
         sol +=1
@@ -34,12 +37,10 @@ Window {
         title: "Entertainment"
     }
 
-
     Text {
         anchors.bottom: parent.bottom
         text: "H2O "
     }
-
 
     Rectangle {
         id: player
@@ -53,11 +54,31 @@ Window {
         border.color: "black"
         Behavior on x { NumberAnimation {} }
         Behavior on y { NumberAnimation {} }
+
+        onXChanged: playerMoved()
+        onYChanged: playerMoved()
     }
 
-    function mouseInsideItem(mouse, item) {
-        if ((mouse.x < (item.x + item.width)) && (mouse.x > item.x)
-                && (mouse.y < item.y + item.height) && (mouse.y> item.y)) {
+
+    function playerMoved() {
+        var foundItem = false
+
+        for (var index in actionItems) {
+            var actionItem = actionItems[index];
+            if (pointInsideItem(player, actionItem)) {
+                activeItem = actionItem;
+                foundItem = true;
+            }
+        }
+
+        if (!foundItem) {
+            activeItem = null;
+        }
+    }
+
+    function pointInsideItem(point, item) {
+        if ((point.x < (item.x + item.width)) && (point.x > item.x)
+                && (point.y < item.y + item.height) && (point.y> item.y)) {
             return true
         }
         return false
@@ -69,13 +90,6 @@ Window {
         onClicked: {
             player.x = mouse.x
             player.y = mouse.y
-
-            if (mouseInsideItem(mouse, potatoRect))
-                print ("Inside Potato!")
-            if (mouseInsideItem(mouse, ht2oRect))
-                print ("Inside H20!")
-            if (mouseInsideItem(mouse, entertainment))
-                print ("Inside Entertainment!")
         }
     }
 
@@ -108,12 +122,13 @@ Window {
         }
     }
 
-    Rectangle {
-        id: potatoRect
+    ActionItem {
+        id: potatoActionItem
         anchors.centerIn: parent
         width: parent.width * 0.6
         height: parent.height * 0.6
-        color: Qt.rgba(1, 1, 0, 0.5)
+        title: "potatoes"
+        fillColor: Qt.rgba(1, 1, 0, 0.5)
     }
 
     Rectangle {
@@ -136,6 +151,13 @@ Window {
             anchors.fill: parent
             onClicked: endTurn()
         }
+    }
+
+    Text {
+        anchors.centerIn: parent
+        color: "red"
+        text: activeItem !== null ? activeItem.title : "no item"
+        font.pixelSize: 50
     }
 
 }

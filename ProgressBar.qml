@@ -8,6 +8,8 @@ Rectangle {
     property real progress
     property color fillColor: "yellow"
 
+    opacity: 0.7
+
     Rectangle {
         height: parent.height
         width: parent.width * progress

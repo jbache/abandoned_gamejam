@@ -19,8 +19,18 @@ Rectangle {
     color: fillColor
 
     ProgressBar {
+        id: progressbar
         anchors.centerIn: parent
         width: parent.width * 0.6
         anchors.verticalCenterOffset: 30
+
+        NumberAnimation on progress {
+            id: progressAnimation
+            running: activeItem ? activeItem.title === actionItem.title : false
+            from: 0
+            to: 1
+            duration: 10000
+        }
     }
+
 }
