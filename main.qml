@@ -11,8 +11,15 @@ Window {
     property int h2o: 100
     property real energy: 1
     property ActionItem activeItem: null
+    property bool modalDialog: messageDialog.visible
 
     property var actionItems: [entertainment, potatoActionItem, h20]
+
+    function applyRandomShit() {
+        if (Math.random() > 2/3) {
+            messageDialog.showDialog("Random shit just happened")
+        }
+    }
 
     function endTurn() {
         sol +=1
@@ -20,6 +27,7 @@ Window {
         h2o += 1;
         energy = 1;
         messageText.showMessage("Sol " + sol);
+        applyRandomShit()
     }
 
     function harvestPotatoes() {
@@ -169,8 +177,15 @@ Window {
             }
         }
     }
+
     MessageText {
         id: messageText
     }
+
+    MessageDialog{
+        id: messageDialog
+    }
+
+
 }
 

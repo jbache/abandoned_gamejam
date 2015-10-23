@@ -49,7 +49,7 @@ Item {
     Timer {
         id: consumetimer
         interval: 50
-        running: isCurrentActionItem
+        running: isCurrentActionItem && !modalDialog
         repeat: true
         onTriggered: {
             if (energy > 0) {
