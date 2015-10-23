@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>images/ground.png</file>
         <file>ProgressBar.qml</file>
+        <file>ActionItem.qml</file>
     </qresource>
 </RCC>

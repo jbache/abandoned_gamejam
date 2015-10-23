@@ -22,37 +22,18 @@ Window {
         source: "qrc:///images/ground.png"
     }
 
-    Rectangle {
-        id: ht2oRect
-        width: 300
-        height: 100
+    ActionItem {
+        id: h20
         anchors.bottom: parent.bottom
-        Text {
-            anchors.centerIn: parent
-            text: "H2O"
-            color: "white"
-            font.pixelSize: 30
-        }
-        border.width: 2
-        border.color: "white"
-        color: "#33ffffff"
+        title: "H2O"
     }
 
-    Rectangle {
+    ActionItem {
         id: entertainment
         anchors.right: parent.right
-        width: 300
-        height: 100
-        Text {
-            anchors.centerIn: parent
-            text: "Entertainment"
-            color: "white"
-            font.pixelSize: 30
-        }
-        border.width: 2
-        border.color: "white"
-        color: "#33ff0000"
+        title: "Entertainment"
     }
+
 
     Text {
         anchors.bottom: parent.bottom

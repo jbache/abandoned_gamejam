@@ -12,5 +12,8 @@ Rectangle {
         height: parent.height
         width: parent.width * progress
         color: fillColor
+        opacity: 0.7
     }
+
+    border.color: "darkgray"
 }
