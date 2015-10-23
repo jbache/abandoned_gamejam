@@ -37,11 +37,6 @@ Window {
         title: "Entertainment"
     }
 
-    Text {
-        anchors.bottom: parent.bottom
-        text: "H2O "
-    }
-
     Rectangle {
         id: player
         width: 40
@@ -129,6 +124,8 @@ Window {
         height: parent.height * 0.6
         title: "potatoes"
         fillColor: Qt.rgba(1, 1, 0, 0.5)
+
+        onFinishedTask: potato +=1
     }
 
     Rectangle {
@@ -152,13 +149,5 @@ Window {
             onClicked: endTurn()
         }
     }
-
-    Text {
-        anchors.centerIn: parent
-        color: "red"
-        text: activeItem !== null ? activeItem.title : "no item"
-        font.pixelSize: 50
-    }
-
 }
 
