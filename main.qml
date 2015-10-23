@@ -22,6 +22,12 @@ Window {
         messageText.showMessage("Sol " + sol);
     }
 
+    function harvestPotatoes() {
+        potatoes += 5;
+        energy = 0;
+    }
+
+
     function playerMoved() {
         var foundItem = false
 
@@ -131,9 +137,19 @@ Window {
             onFinishedTask: potatoes += 1
         }
 
+        Button {
+            buttonText: "Harvest Potatoes"
+            anchors.right: parent.right
+            anchors.bottom: endTurnButton.top
+            onClicked: harvestPotatoes()
+        }
+
+
+
         Rectangle {
             anchors.right: parent.right
             anchors.bottom: parent.bottom
+            id: endTurnButton
             anchors.margins: 10
             border.color: "white"
             width: 260

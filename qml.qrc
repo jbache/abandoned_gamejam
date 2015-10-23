@@ -6,5 +6,6 @@
         <file>ActionItem.qml</file>
         <file>StatusText.qml</file>
         <file>MessageText.qml</file>
+        <file>Button.qml</file>
     </qresource>
 </RCC>
