@@ -7,6 +7,7 @@ Rectangle {
 
     property real progress
     property color fillColor: "yellow"
+//    onProgressChanged: if (progress > 1) progress = 1
 
     opacity: 0.7
 

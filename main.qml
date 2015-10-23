@@ -19,8 +19,8 @@ Window {
         potatoes -= 1;
         h2o += 1;
         energy = 1;
+        messageText.showMessage("Sol " + sol);
     }
-
 
     function playerMoved() {
         var foundItem = false
@@ -109,17 +109,12 @@ Window {
             anchors.left: parent.left
             anchors.margins: 20
             spacing: 10
-            Text {
-                color: "white"
-                font.pixelSize: 30
-                text: "Sol:" + sol
-            }
-            Text {
+            StatusText {
                 color: "white"
                 font.pixelSize: 30
                 text: "Potatoes: " + potatoes
             }
-            Text {
+            StatusText {
                 color: "white"
                 font.pixelSize: 30
                 text: "H2O: " + h2o
@@ -129,12 +124,11 @@ Window {
         ActionItem {
             id: potatoActionItem
             anchors.centerIn: parent
-            width: parent.width * 0.6
-            height: parent.height * 0.6
+            width: parent.width * 0.4
+            height: parent.height * 0.4
             title: "potatoes"
             fillColor: Qt.rgba(1, 1, 0, 0.5)
-
-            onFinishedTask: potato +=1
+            onFinishedTask: potatoes += 1
         }
 
         Rectangle {
@@ -158,7 +152,9 @@ Window {
                 onClicked: endTurn()
             }
         }
-
+    }
+    MessageText {
+        id: messageText
     }
 }
 
