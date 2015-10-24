@@ -15,5 +15,8 @@
         <file>images/mars_360.png</file>
         <file>images/rocket.jpg</file>
         <file>images/rocket.png</file>
+        <file>images/potatoplant_1_360.png</file>
+        <file>images/potatoplant_2_360.png</file>
+        <file>images/potatoplant_3_360.png</file>
     </qresource>
 </RCC>
