@@ -69,6 +69,7 @@ Window {
     SpaceshipIndicator {
         id: gameProgress
         z: 1
+        sol_count: sol
     }
 
     GameCanvas {
