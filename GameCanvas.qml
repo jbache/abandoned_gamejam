@@ -17,6 +17,8 @@ Item {
         energy = 1;
         messageText.showMessage("Sol " + sol);
         applyRandomShit()
+
+        calculateDistanceTraveledEachDay(50);
     }
 
     function harvestPotatoes() {
