@@ -2,6 +2,7 @@ import QtQuick 2.3
 import QtQuick.Window 2.2
 
 Window {
+    id: window
     visible: true
     width: 800
     height: 600
@@ -13,7 +14,7 @@ Window {
     property ActionItem activeItem: null
     property bool modalDialog: messageDialog.visible
 
-    property var actionItems: [entertainment, potatoActionItem, h20]
+    property var actionItems: [potatoActionItem]
 
     function applyRandomShit() {
         if (Math.random() > 2/3) {
@@ -60,99 +61,63 @@ Window {
         return false
     }
 
-    ProgressBar {
-        id: energyBar
+    Rectangle {
+        id: gameProgress
+        color: "#333"
         width: parent.width
-        progress: energy
+        height: 60
         z: 1
     }
 
     Item {
-        anchors.top: energyBar.bottom
+        id: gameCanvas
+        anchors.top: gameProgress.bottom
+        width: parent.width
         anchors.bottom: parent.bottom
 
-        width: parent.width
+        Image {
+            source: "qrc:///images/ground.jpg"
+            anchors.fill: parent
+        }
+
+        ProgressBar {
+            id: energyBar
+            width: 100
+            progress: energy
+            z: 1
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.margins: 30
+        }
 
         Image {
-            anchors.fill: parent
-            source: "qrc:///images/ground.png"
-        }
-
-        ActionItem {
-            id: h20
-            anchors.bottom: parent.bottom
-            title: "H2O"
-        }
-
-        ActionItem {
-            id: entertainment
-            anchors.right: parent.right
-            title: "Entertainment"
-        }
-
-        Rectangle {
             id: player
-            width: 40
-            height: 40
             x: parent.width/2
-            y: parent.height/2
-            radius: width/2
-            border.width: 2
-            color: "#ccc"
-            border.color: "black"
+            anchors.bottom: parent.bottom
+            fillMode: Image.PreserveAspectFit
+            height: window.height/3
             Behavior on x { NumberAnimation {} }
-            Behavior on y { NumberAnimation {} }
-
-            onXChanged: playerMoved()
-            onYChanged: playerMoved()
-        }
-
-
-
-        MouseArea {
-            id: mouse
-            anchors.fill: parent
-            onClicked: {
-                player.x = mouse.x
-                player.y = mouse.y
-            }
-        }
-
-        Column {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.margins: 20
-            spacing: 10
-            StatusText {
-                color: "white"
-                font.pixelSize: 30
-                text: "Potatoes: " + potatoes
-            }
-            StatusText {
-                color: "white"
-                font.pixelSize: 30
-                text: "H2O: " + h2o
-            }
+            source: "qrc:///images/matt_damon.png"
+//            y: window.height - height + 10 - 10 * Math.sin(x / 50.5)
+            onXChanged: { playerMoved(); }
         }
 
         ActionItem {
             id: potatoActionItem
-            anchors.centerIn: parent
-            width: parent.width * 0.4
-            height: parent.height * 0.4
-            title: "potatoes"
-            fillColor: Qt.rgba(1, 1, 0, 0.5)
-            onFinishedTask: potatoes += 1
+            title:  "Potatoes"
+            anchors.bottom: parent.bottom
+            height: gameCanvas.height
         }
 
-        Button {
-            buttonText: "Harvest Potatoes"
-            anchors.right: parent.right
-            anchors.bottom: endTurnButton.top
-            onClicked: harvestPotatoes()
+        MouseArea {
+            id: mouse
+            anchors.fill: parent
+            onClicked: { player.x = mouse.x }
         }
 
+        MessageText { id: messageText }
 
+        MessageDialog { id: messageDialog }
 
         Rectangle {
             anchors.right: parent.right
@@ -177,15 +142,5 @@ Window {
             }
         }
     }
-
-    MessageText {
-        id: messageText
-    }
-
-    MessageDialog{
-        id: messageDialog
-    }
-
-
 }
 

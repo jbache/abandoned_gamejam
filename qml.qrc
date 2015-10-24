@@ -1,12 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>images/ground.png</file>
         <file>ProgressBar.qml</file>
         <file>ActionItem.qml</file>
         <file>StatusText.qml</file>
         <file>MessageText.qml</file>
         <file>Button.qml</file>
         <file>MessageDialog.qml</file>
+        <file>images/ground.jpg</file>
+        <file>images/matt_damon.png</file>
     </qresource>
 </RCC>

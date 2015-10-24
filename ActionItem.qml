@@ -37,14 +37,14 @@ Item {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        anchors.margins: -1
-        color: "transparent"
-        border.color: "white"
-        border.width: 1
-        opacity: 0.7
-    }
+//    Rectangle {
+//        anchors.fill: parent
+//        anchors.margins: -1
+//        color: "transparent"
+//        border.color: "white"
+//        //border.width: 1
+//        opacity: 0.7
+//    }
 
     Timer {
         id: consumetimer
