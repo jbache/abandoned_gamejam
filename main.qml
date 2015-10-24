@@ -107,6 +107,12 @@ Window {
             onXChanged: { playerMoved(); }
         }
 
+        MouseArea {
+            id: mouse
+            anchors.fill: parent
+            onClicked: { player.x = mouse.x }
+        }
+
         ActionItem {
             id: potatoActionItem
 
@@ -137,11 +143,6 @@ Window {
             height: gameCanvas.height
         }
 
-        MouseArea {
-            id: mouse
-            anchors.fill: parent
-            onClicked: { player.x = mouse.x }
-        }
 
         MessageText { id: messageText }
 
