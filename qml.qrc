@@ -15,11 +15,12 @@
         <file>images/mars_360.png</file>
         <file>images/rocket.jpg</file>
         <file>images/rocket.png</file>
-        <file>images/potatoplant_0.png</file>
-        <file>images/potatoplant_3.png</file>
-        <file>images/potatoplant_2.png</file>
-        <file>images/potatoplant_1.png</file>
         <file>Splash.qml</file>
         <file>images/VictoryMeme.png</file>
+        <file>images/potatoplant_1.png</file>
+        <file>images/potatoplant_0.png</file>
+        <file>images/potatoplant_3.png</file>
+        <file>images/GameCanvas.qml</file>
+        <file>images/potatoplant_2.png</file>
     </qresource>
 </RCC>

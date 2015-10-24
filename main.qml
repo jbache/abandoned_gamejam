@@ -41,17 +41,20 @@ Window {
     Splash {
         id: splash
         z: 1
+        text: "Team Rocket Science"
         anchors.fill: parent
+        opacity: 0
     }
 
     Splash {
         id: gameWon
         z: 1
         opacity: 0
-        text: "VICTOLEE"
+        //text: "VICTOLEE"
         anchors.fill: parent
         imageSource: "qrc:///images/VictoryMeme.png"
     }
+
 
     MessageText { id: messageText }
 

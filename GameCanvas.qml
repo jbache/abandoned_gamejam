@@ -98,7 +98,6 @@ Item {
         x: parent.width/2
         z: 1
         anchors.bottom: ground.top
-        anchors.bottomMargin: -20
         fillMode: Image.PreserveAspectFit
         height: window.height/4
         Behavior on x { NumberAnimation {} }
@@ -109,7 +108,7 @@ Item {
 
     Rectangle {
         id: ground
-        height: 80
+        height: 110
         opacity: 0.9
         anchors.bottom: parent.bottom
         width: parent.width
@@ -156,6 +155,33 @@ Item {
     //        }
     //        height: gameCanvas.height
     //    }
+
+    Row {
+        anchors.bottom: ground.top
+        anchors.bottomMargin: -100
+        z: 10
+        Image {
+            width: 100
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:///images/potatoplant_0.png"
+        }
+        Image {
+            width: 100
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:///images/potatoplant_1.png"
+        }
+
+        Image {
+            width: 100
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:///images/potatoplant_2.png"
+        }
+        Image {
+            width: 100
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:///images/potatoplant_3.png"
+        }
+    }
 
 
 

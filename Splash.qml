@@ -36,7 +36,7 @@ Rectangle {
             font.pixelSize: 30
             color: "white"
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Team Rocket Science"
+            text: ""
         }
         Image {
             id: image
