@@ -35,6 +35,11 @@ Window {
         energy = 0;
     }
 
+    function plantPotato() {
+        potatoes -= 1;
+        energy -= .2;
+    }
+
 
     function playerMoved() {
         var foundItem = false
@@ -135,24 +140,33 @@ Window {
             }
         }
 
-        ActionItem {
+        Rectangle {
             id: potatoActionItem
             anchors.centerIn: parent
             width: parent.width * 0.4
-            height: parent.height * 0.4
-            title: "potatoes"
-            fillColor: Qt.rgba(1, 1, 0, 0.5)
-            onFinishedTask: potatoes += 1
+            height: parent.height * 0.4   
+            color: Qt.rgba(1, 1, 0, 0.5)
+            Text {
+                anchors.centerIn: parent
+                text: title
+                color: "white"
+                font.pixelSize: 30
+            }
+
+            Button {
+                id: plantPotatoButton
+                buttonText: "Plant Potato"
+                anchors.left: potatoActionItem.left
+                anchors.bottom: potatoActionItem.bottom
+                onClicked: plantPotato()
+            }
+            Button {
+                buttonText: "Harvest Potatoes"
+                anchors.left: potatoActionItem.left
+                anchors.bottom: plantPotatoButton.top
+                onClicked: harvestPotatoes()
+            }
         }
-
-        Button {
-            buttonText: "Harvest Potatoes"
-            anchors.right: parent.right
-            anchors.bottom: endTurnButton.top
-            onClicked: harvestPotatoes()
-        }
-
-
 
         Rectangle {
             anchors.right: parent.right
