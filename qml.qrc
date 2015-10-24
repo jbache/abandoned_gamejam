@@ -9,5 +9,9 @@
         <file>MessageDialog.qml</file>
         <file>images/ground.jpg</file>
         <file>images/matt_damon.png</file>
+        <file>GameCanvas.qml</file>
+        <file>SpaceshipIndicator.qml</file>
+        <file>images/earth.png</file>
+        <file>images/mars_360.png</file>
     </qresource>
 </RCC>
