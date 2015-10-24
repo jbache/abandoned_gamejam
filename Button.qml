@@ -10,7 +10,7 @@ Rectangle {
     signal clicked
 
     anchors.margins: 10
-    border.color: "white"
+    border.color: "transparent"
     color: buttonID.pressed ? "#33ffffff" : "#77ffffff"
     radius: 10
 

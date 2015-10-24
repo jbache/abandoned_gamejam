@@ -28,8 +28,10 @@ Item {
         energy = 1;
         messageText.showMessage("Sol " + sol);
         applyRandomShit()
-        calculateDistanceTraveledEachDay(50);
-
+        calculateDistanceTraveledEachDay();
+        if (sol == totalDaysToRescue) {
+            onClicked: gameWon.show()
+        }
     }
 
     function harvestPotatoes() {
@@ -73,7 +75,7 @@ Item {
 
     ProgressBar {
         id: energyBar
-        width: 100
+        width: 200
         progress: energy
         z: 1
         anchors.right: endSolButton.left
@@ -94,18 +96,21 @@ Item {
     Image {
         id: player
         x: parent.width/2
+        z: 1
         anchors.bottom: ground.top
+        anchors.bottomMargin: -20
         fillMode: Image.PreserveAspectFit
         height: window.height/4
         Behavior on x { NumberAnimation {} }
         source: "qrc:///images/matt_damon.png"
-//            y: window.height - height + 10 - 10 * Math.sin(x / 50.5)
+        //            y: window.height - height + 10 - 10 * Math.sin(x / 50.5)
         onXChanged: { playerMoved(); }
     }
 
     Rectangle {
         id: ground
-        height: 60
+        height: 80
+        opacity: 0.9
         anchors.bottom: parent.bottom
         width: parent.width
         color: "#f3834b"
@@ -122,34 +127,35 @@ Item {
         onClicked: { player.x = mouse.x; }
     }
 
-//    ActionItem {
-//        id: potatoActionItem
 
-//        width: parent.width * 0.4
-//        title:  "Potatoes"
-//        anchors.bottom: parent.bottom
-//        Text {
-//            anchors.centerIn: parent
-//            text: title
-//            color: "white"
-//            font.pixelSize: 30
-//        }
+    //    ActionItem {
+    //        id: potatoActionItem
 
-//        Button {
-//            id: plantPotatoButton
-//            buttonText: "Plant Potato"
-//            anchors.left: potatoActionItem.left
-//            anchors.bottom: potatoActionItem.bottom
-//            onClicked: plantPotato()
-//        }
-//        Button {
-//            buttonText: "Harvest Potatoes"
-//            anchors.left: potatoActionItem.left
-//            anchors.bottom: plantPotatoButton.top
-//            onClicked: harvestPotatoes()
-//        }
-//        height: gameCanvas.height
-//    }
+    //        width: parent.width * 0.4
+    //        title:  "Potatoes"
+    //        anchors.bottom: parent.bottom
+    //        Text {
+    //            anchors.centerIn: parent
+    //            text: title
+    //            color: "white"
+    //            font.pixelSize: 30
+    //        }
+
+    //        Button {
+    //            id: plantPotatoButton
+    //            buttonText: "Plant Potato"
+    //            anchors.left: potatoActionItem.left
+    //            anchors.bottom: potatoActionItem.bottom
+    //            onClicked: plantPotato()
+    //        }
+    //        Button {
+    //            buttonText: "Harvest Potatoes"
+    //            anchors.left: potatoActionItem.left
+    //            anchors.bottom: plantPotatoButton.top
+    //            onClicked: harvestPotatoes()
+    //        }
+    //        height: gameCanvas.height
+    //    }
 
 
 

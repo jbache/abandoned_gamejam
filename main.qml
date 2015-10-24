@@ -9,26 +9,26 @@ Window {
 
     property int sol: 0
     property int potatoes: 10
-    property int totalDaysToRescue: 50;
+    property int totalDaysToRescue: 10;
     property int h2o: 100
     property real energy: 1
     property ActionItem activeItem: null
     property bool modalDialog: messageDialog.visible
 
-
-    function calculateDistanceTraveledEachDay(totTravelDays) {
+    function calculateDistanceTraveledEachDay() {
         var distance = width - gameProgress.earth.width - gameProgress.mars.width;
-        var travelEachDay = distance/totTravelDays;
+        var travelEachDay = distance/totalDaysToRescue;
         print ("travel Each Day: " + travelEachDay);
         return travelEachDay;
     }
+
+
 
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
         id: gameProgress
         z: 1
         sol_count: sol
-
     }
 
     GameCanvas {
@@ -36,6 +36,21 @@ Window {
         anchors.top: gameProgress.bottom
         width: parent.width
         anchors.bottom: parent.bottom
+    }
+
+    Splash {
+        id: splash
+        z: 1
+        anchors.fill: parent
+    }
+
+    Splash {
+        id: gameWon
+        z: 1
+        opacity: 0
+        text: "VICTOLEE"
+        anchors.fill: parent
+        imageSource: "qrc:///images/VictoryMeme.png"
     }
 
     MessageText { id: messageText }
