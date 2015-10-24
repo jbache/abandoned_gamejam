@@ -1,7 +1,10 @@
 import QtQuick 2.0
 
 Item {
+    id: game
     property var actionItems: []
+    property var potatoList: []
+    signal nextSol()
 
     property var randomEvents: ["Your H20 maker broke!",
     "Martian zombies came for your potatos!",
@@ -43,24 +46,39 @@ Item {
         messageText.showMessage("Sol " + sol);
         applyRandomShit()
         calculateDistanceTraveledEachDay();
-        if (sol == totalDaysToRescue) {
+        if (sol == totalDaysToRescue)
             onClicked: gameWon.show()
-        }
+
+        nextSol()
+        var p = potatoList
+        for (var i in p) { p[i]++ }
+        potatoList = p;
     }
+
 
     function harvestPotatoes() {
         potatoes += 5;
         energy = 0;
+
+    }
+
+    Component {
+        id: potatoComponent
+        Potato {}
     }
 
     function plantPotato() {
         potatoes -= 1;
         energy -= .2;
+        if (potatoList.length < 7) {
+            var _list = potatoList;
+            _list.push(0);
+            potatoList = _list;
+        }
     }
 
     function playerMoved() {
         var foundItem = false
-
         for (var index in actionItems) {
             var actionItem = actionItems[index];
             if (pointInsideItem(player, actionItem)) {
@@ -68,7 +86,6 @@ Item {
                 foundItem = true;
             }
         }
-
         if (!foundItem) {
             activeItem = null;
         }
@@ -171,32 +188,38 @@ Item {
     //    }
 
     Row {
+        z: 1
         anchors.bottom: ground.top
-        anchors.bottomMargin: -100
-        z: 10
-        Image {
-            width: 100
-            fillMode: Image.PreserveAspectFit
-            source: "qrc:///images/potatoplant_0.png"
-        }
-        Image {
-            width: 100
-            fillMode: Image.PreserveAspectFit
-            source: "qrc:///images/potatoplant_1.png"
-        }
-
-        Image {
-            width: 100
-            fillMode: Image.PreserveAspectFit
-            source: "qrc:///images/potatoplant_2.png"
-        }
-        Image {
-            width: 100
-            fillMode: Image.PreserveAspectFit
-            source: "qrc:///images/potatoplant_3.png"
+        anchors.bottomMargin: -101
+        anchors.left: parent.left
+        anchors.leftMargin: 30
+        spacing: 10
+        Repeater {
+            id: potatoRepeater
+            model: potatoList
+            Potato { id: potato }
         }
     }
 
 
+    Button {
+        id: plantPotatoButton
+        z: 2
+        buttonText: "Plant Potato"
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.margins: 30
+        onClicked: plantPotato()
+    }
+
+    Button {
+        z: 3
+
+        buttonText: "Harvest Potatoes"
+        anchors.left: plantPotatoButton.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 30
+        onClicked: harvestPotatoes()
+    }
 
 }
