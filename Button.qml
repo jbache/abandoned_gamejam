@@ -4,6 +4,7 @@ Rectangle {
     id: button
     width: 260
     height: 60
+    property int fontsize: 30
 
     property string buttonText: "buttonTitle"
     signal clicked
@@ -16,7 +17,7 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         color: "white"
-        font.pixelSize: 30
+        font.pixelSize: fontsize
         text: buttonText
     }
 
@@ -24,6 +25,7 @@ Rectangle {
         id: buttonID
         anchors.fill: parent
         onClicked: button.clicked()
+
     }
 
 }

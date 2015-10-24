@@ -3,6 +3,16 @@ import QtQuick 2.0
 Item {
     property var actionItems: []
 
+    Text {
+        id: sol_indicator
+        //anchors.left: parent.left
+        anchors.top: parent.top
+        x: 20
+        color: "white"
+        font.pixelSize: 20
+        text: "sol: " + window.sol
+        z:1
+    }
 
     function applyRandomShit() {
         if (Math.random() > 2/3) {
@@ -11,14 +21,15 @@ Item {
     }
 
     function endTurn() {
+        print("end turn button clicked")
         sol +=1
         potatoes -= 1;
         h2o += 1;
         energy = 1;
         messageText.showMessage("Sol " + sol);
         applyRandomShit()
-
         calculateDistanceTraveledEachDay(50);
+
     }
 
     function harvestPotatoes() {
@@ -65,9 +76,19 @@ Item {
         width: 100
         progress: energy
         z: 1
-        anchors.right: parent.right
+        anchors.right: endSolButton.left
         anchors.top: parent.top
         anchors.margins: 30
+    }
+
+    Button {
+        id: endSolButton
+        width: 50
+        fontsize: 20
+        buttonText: "End <br>sol"
+        onClicked: endTurn()
+        anchors.right: parent.right
+        z:1
     }
 
     Image {
