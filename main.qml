@@ -22,8 +22,6 @@ Window {
         return travelEachDay;
     }
 
-
-
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
         id: gameProgress

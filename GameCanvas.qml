@@ -3,6 +3,10 @@ import QtQuick 2.0
 Item {
     property var actionItems: []
 
+    property var randomEvents: ["Your H20 maker broke!",
+    "Martian zombies came for your potatos!",
+    "Your radio to NASA broke!"]
+
     Text {
         id: sol_indicator
         //anchors.left: parent.left
@@ -18,6 +22,12 @@ Item {
         if (Math.random() > 2/3) {
             messageDialog.showDialog("Random shit just happened")
         }
+        randomEventSelector()
+    }
+
+    function randomEventSelector() {
+    var numEvents = randomEvents.length;
+        print("number of events: " + numEvents)
     }
 
     function endTurn() {
