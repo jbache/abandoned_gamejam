@@ -14,10 +14,15 @@ Item {
         print ("message ", messagetext )
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: dialog.opacity = 0
+    function closeDialog() {
+        //anchors.fill: parent
+        dialog.opacity = 0
     }
+
+    //MouseArea {
+    //    anchors.fill: parent
+    //    onClicked: dialog.opacity = 0
+    //}
 
     Rectangle {
         anchors.fill: parent
@@ -36,12 +41,20 @@ Item {
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
            // text: "<b>Random shit just happened!</b><p>Some more text"
         }
+
+        Button {
+            id: eventButton
+            width: 100
+            fontsize: 20
+            buttonText: "Fix <br>it"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            z:1
+            onClicked: closeDialog()
+        }
     }
 
-    Button {
 
-
-    }
 
 }
 

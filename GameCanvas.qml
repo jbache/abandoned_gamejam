@@ -19,8 +19,8 @@ Item {
     }
 
     function applyRandomShit() {
-        if (Math.random() > 2/3) {
-            //messageDialog.showDialog("Random shit just happened")
+  //      if (Math.random() > 2/3) {
+        if (Math.random() > 1/5) {
             var eventIndex = randomEventSelector()
             messageDialog.showDialog(randomEvents[eventIndex])
         }
@@ -31,7 +31,6 @@ Item {
         var numEvents = randomEvents.length;
         var event = Math.floor(Math.random() *numEvents)
         return event
-//        print("event: " + randomEvents[event])
     }
 
     function endTurn() {
