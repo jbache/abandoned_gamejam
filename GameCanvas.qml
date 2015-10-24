@@ -67,9 +67,6 @@ Item {
     }
 
 
-    MessageText { id: messageText }
-
-    MessageDialog { id: messageDialog }
 
     Rectangle {
         anchors.right: parent.right

@@ -78,5 +78,10 @@ Window {
         width: parent.width
         anchors.bottom: parent.bottom
     }
+
+    MessageText { id: messageText }
+
+    MessageDialog { id: messageDialog }
+
 }
 
