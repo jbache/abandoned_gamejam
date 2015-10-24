@@ -36,6 +36,11 @@ Window {
         energy = 0;
     }
 
+    function plantPotato() {
+        potatoes -= 1;
+        energy -= .2;
+    }
+
 
     function playerMoved() {
         var foundItem = false
@@ -104,8 +109,31 @@ Window {
 
         ActionItem {
             id: potatoActionItem
+
+            width: parent.width * 0.4
             title:  "Potatoes"
             anchors.bottom: parent.bottom
+            Text {
+                anchors.centerIn: parent
+                text: title
+                color: "white"
+                font.pixelSize: 30
+            }
+
+            Button {
+                id: plantPotatoButton
+                buttonText: "Plant Potato"
+                anchors.left: potatoActionItem.left
+                anchors.bottom: potatoActionItem.bottom
+                onClicked: plantPotato()
+            }
+            Button {
+                buttonText: "Harvest Potatoes"
+                anchors.left: potatoActionItem.left
+                anchors.bottom: plantPotatoButton.top
+                onClicked: harvestPotatoes()
+            }
+
             height: gameCanvas.height
         }
 
