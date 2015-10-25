@@ -34,12 +34,20 @@ Window {
         source: "qrc:///sounds/end.wav"
     }
 
-//    MediaPlayer {
-//        id: music
-//        source: "qrc:///music/escape.mp3"
-//        autoLoad: true
-//        autoPlay: true
-//    }
+    MediaPlayer {
+        id: music
+        source: "qrc:///music/rebuilding.mp3"
+        autoLoad: true
+        autoPlay: false
+    }
+
+    MediaPlayer {
+        id: intromusic
+        source: "qrc:///music/breakdown.mp3"
+        autoLoad: true
+        autoPlay: true
+    }
+
 
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
@@ -73,6 +81,10 @@ Window {
         text: "Stuck on Mars!"
         anchors.fill: parent
         opacity: 0
+        onClicked: {
+            intromusic.stop()
+            music.play()
+        }
     }
 
     Splash {
