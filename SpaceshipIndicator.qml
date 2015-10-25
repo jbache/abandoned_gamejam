@@ -40,7 +40,7 @@ Rectangle {
 
     Image {
         id: _mars
-        source: "qrc:///images/mars_360.png"
+        source: "qrc:///images/mars.png"
         height: 40
         width: 40
         fillMode: Image.PreserveAspectFit
