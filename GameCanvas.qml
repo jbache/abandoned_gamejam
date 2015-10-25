@@ -5,6 +5,7 @@ Item {
     id: game
     property var actionItems: []
     property var potatoList: []
+    property var oldPotatoList: []
     signal nextSol()
 
 //    Audio {
@@ -35,6 +36,12 @@ Item {
         return event
     }
 
+    function updateOldPotatoList() {
+        oldPotatoList = []
+        for (var i in potatoList)
+            oldPotatoList.push(potatoList[i])
+    }
+
     function endTurn() {
         sol +=1
         potatoes -= 1;
@@ -58,6 +65,7 @@ Item {
             }
         }
         potatoList = p;
+        updateOldPotatoList()
     }
 
     function isGameLost() {
@@ -84,7 +92,6 @@ Item {
         }
         harvestButton.enabled = false;
         potatoList = p;
-
     }
 
     Component {
@@ -93,6 +100,7 @@ Item {
     }
 
     function plantPotato() {
+        updateOldPotatoList()
         potatoes -= 1;
         energy -= .2;
 

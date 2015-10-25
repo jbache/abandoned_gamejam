@@ -3,16 +3,20 @@ import QtQuick 2.0
 Image {
     width: 100
     height: 280
+
     fillMode: Image.PreserveAspectFit
     source: modelData> -1 ?"qrc:///images/potatoplant_" + modelData + ".png" : ""
-    property int old
-    onSourceChanged: {
-        if (modelData !== old)
+
+    Component.onCompleted:  {
+        if (potatoList[index] != oldPotatoList[index]) {
             bounceAnim.restart()
-        old = modelData
+        }
+
     }
+
     transformOrigin: Item.Top
     NumberAnimation on scale {
+        running: false
         from: 1.2
         to: 1
         easing.type: Easing.OutCubic
