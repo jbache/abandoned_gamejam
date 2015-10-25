@@ -74,7 +74,7 @@ Window {
             opacity: 0
             anchors.fill: parent
             height: parent.height * .75
-            imageSource: "qrc:///images/water.png"
+            imageSource: "qrc:///images/make_water.png"
         }
 
     MessageText { id: messageText }
