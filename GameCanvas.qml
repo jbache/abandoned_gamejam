@@ -7,8 +7,8 @@ Item {
     signal nextSol()
 
     property var randomEvents: ["Your H20 maker broke!",
-    "Martian zombies came for your potatos!",
-    "Your radio to NASA broke!"]
+        "Martian zombies came for your potatos!",
+        "Your radio to NASA broke!"]
 
     Text {
         id: sol_indicator
@@ -22,8 +22,8 @@ Item {
     }
 
     function applyRandomShit() {
-  //      if (Math.random() > 2/3) {
-        if (Math.random() > 1/5) {
+        if (Math.random() > 1/3) {
+ //       if (Math.random() > 1/5) {
             var eventIndex = randomEventSelector()
             messageDialog.showDialog(randomEvents[eventIndex])
         }
@@ -34,6 +34,7 @@ Item {
         var numEvents = randomEvents.length;
         var event = Math.floor(Math.random() *numEvents)
         return event
+        //        print("event: " + randomEvents[event])
     }
 
     function endTurn() {
@@ -50,7 +51,13 @@ Item {
 
         nextSol()
         var p = potatoList
-        for (var i in p) { p[i]++ }
+        var hasRipePotato = false;
+        for (var i in p) {
+            if (p[i] < 3)p[i]++;
+            if (p[i] == 3) {
+                harvestButton.enabled = true;
+            }
+        }
         potatoList = p;
     }
 
@@ -58,6 +65,15 @@ Item {
     function harvestPotatoes() {
         potatoes += 5;
         energy = 0;
+
+        var p = potatoList;
+        for (var i in potatoList) {
+            if (potatoList[i] === 3) {
+                potatoList[i] = -1;
+            }
+        }
+        harvestButton.enabled = false;
+        potatoList = p;
 
     }
 
@@ -69,6 +85,18 @@ Item {
     function plantPotato() {
         potatoes -= 1;
         energy -= .2;
+
+        var _list = potatoList;
+        // If a spot is available, plant there
+        for (var a in _list) {
+            if (_list[a] < 0) {
+                _list[a] = 0;
+                potatoList = _list;
+                return;
+            }
+        }
+
+        // Add new spot
         if (potatoList.length < 7) {
             var _list = potatoList;
             _list.push(0);
@@ -212,8 +240,9 @@ Item {
     }
 
     Button {
+        id: harvestButton
         z: 3
-
+        enabled: false
         buttonText: "Harvest Potatoes"
         anchors.left: plantPotatoButton.right
         anchors.bottom: parent.bottom

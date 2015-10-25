@@ -6,6 +6,7 @@ Rectangle {
     height: 60
     property int fontsize: 30
 
+    opacity: enabled ? 1 : 0.5
     property string buttonText: "buttonTitle"
     signal clicked
 

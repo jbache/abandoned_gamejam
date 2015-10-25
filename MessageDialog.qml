@@ -7,6 +7,8 @@ Item {
     opacity: 0
     visible: opacity > 0
     Behavior on opacity { NumberAnimation {} }
+    signal clicked
+ //   property int eventResponse: 0
 
     function showDialog(messagetext) {
         message.text = messagetext;
@@ -39,7 +41,6 @@ Item {
             font.pixelSize: 50
             color: "white"
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-           // text: "<b>Random shit just happened!</b><p>Some more text"
         }
 
         Button {

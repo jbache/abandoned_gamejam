@@ -17,7 +17,7 @@ Window {
 
     function calculateDistanceTraveledEachDay() {
         var distance = width - gameProgress.earth.width - gameProgress.mars.width;
-        var travelEachDay = distance/totalDaysToRescue;
+        var travelEachDay = distance/(totalDaysToRescue+1);
         print ("travel Each Day: " + travelEachDay);
         return travelEachDay;
     }
