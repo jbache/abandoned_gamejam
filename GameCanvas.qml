@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 
 Item {
     id: game
@@ -11,25 +11,6 @@ Item {
         "Martian zombies came for your potatos. <br> You must give them 10 potatos or they eat your brains!",
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
-    FutureText {
-        id: potato_indicator
-        //anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.margins: 20
-        text: "Potatoes: " + window.potatoes
-        z:1
-    }
-
-    FutureText {
-        id: water_indicator
-        //anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.left: potato_indicator.right
-        anchors.margins: 20
-        text: "Water: " + window.h2o
-        z:1
-    }
 
     function applyRandomShit() {
         if (Math.random() > 1/3) {
@@ -166,6 +147,21 @@ Item {
         anchors.margins: 20
     }
 
+    Column {
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.margins: 10
+        spacing: 10
+        IconIndicator {
+            text:"Potatoes: " + window.potatoes
+            iconSource: "qrc:///images/potato.png"
+        }
+        IconIndicator {
+            text:"Water: " +  window.h2o
+            iconSource: "qrc:///images/water.png"
+        }
+    }
+
     Button {
         id: endSolButton
         anchors.top: energyBar.bottom
@@ -275,5 +271,8 @@ Item {
         anchors.margins: 30
         onClicked: harvestPotatoes()
     }
+
+
+
 
 }

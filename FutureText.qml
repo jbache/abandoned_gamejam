@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Text {
-    color: "#77000000"
+    color: "#aa000000"
     font.family: "neuropol"
     font.pixelSize: 28
 

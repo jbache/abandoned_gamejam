@@ -27,5 +27,9 @@
         <file>fonts/NEUROPOL.ttf</file>
         <file>images/ground.png</file>
         <file>images/dead_astronaut.png</file>
+        <file>images/potato.png</file>
+        <file>images/energy.png</file>
+        <file>images/water.png</file>
+        <file>IconIndicator.qml</file>
     </qresource>
 </RCC>
