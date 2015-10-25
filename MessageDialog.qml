@@ -29,7 +29,7 @@ Item {
         color: "#cc000000"
         border.color: "#77ffffff"
         border.width: 2
-        Text {
+        FutureText {
             id: message
             anchors.fill:parent
             width: parent.width * .7

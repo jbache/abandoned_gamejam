@@ -15,7 +15,8 @@ Rectangle {
     color: buttonID.pressed ? "#33ffffff" : "#77ffffff"
     radius: 10
 
-    Text {
+
+    FutureText {
         anchors.centerIn: parent
         color: "white"
         font.pixelSize: fontsize

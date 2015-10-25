@@ -24,5 +24,7 @@
         <file>Potato.qml</file>
         <file>images/mattdamon_sad.png</file>
         <file>images/mattdamon_happy.png</file>
+        <file>FutureText.qml</file>
+        <file>fonts/NEUROPOL.ttf</file>
     </qresource>
 </RCC>

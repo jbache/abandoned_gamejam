@@ -31,7 +31,7 @@ Rectangle {
     Column {
         anchors.centerIn: parent
         spacing: 40
-        Text {
+        FutureText {
             id: innerText
             font.pixelSize: 30
             color: "white"

@@ -16,7 +16,7 @@ Item {
 
     signal finishedTask
 
-    Text {
+    FutureText {
         anchors.centerIn: parent
         text: title
         color: "white"

@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-Text {
+FutureText {
     onTextChanged: bounceAnim.restart()
     font.family: "SF UI"
     NumberAnimation on scale {

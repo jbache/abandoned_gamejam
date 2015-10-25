@@ -11,26 +11,11 @@ Item {
         "Martian zombies came for your potatos. <br> You must give them 10 potatos or they eat your brains!",
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
-    Text {
-        id: sol_indicator
-        //anchors.left: parent.left
-        anchors.top: parent.top
-        x: 20
-        color: "white"
-        font.pixelSize: 20
-        text: "sol: " + window.sol + "   "
-        z:1
-    }
-
-    Text {
+    FutureText {
         id: potato_indicator
         //anchors.left: parent.left
         anchors.top: parent.top
-        anchors.left: sol_indicator.right
-        color: "white"
-        font.pixelSize: 20
-        text: "potatoes: " + window.potatoes
-        z:1
+        x: 20
     }
 
     function applyRandomShit() {
@@ -182,6 +167,34 @@ Item {
     }
 
 
+    //    ActionItem {
+    //        id: potatoActionItem
+
+    //        width: parent.width * 0.4
+    //        title:  "Potatoes"
+    //        anchors.bottom: parent.bottom
+    //        FutureText {
+    //            anchors.centerIn: parent
+    //            text: title
+    //            color: "white"
+    //            font.pixelSize: 30
+    //        }
+
+    //        Button {
+    //            id: plantPotatoButton
+    //            buttonText: "Plant Potato"
+    //            anchors.left: potatoActionItem.left
+    //            anchors.bottom: potatoActionItem.bottom
+    //            onClicked: plantPotato()
+    //        }
+    //        Button {
+    //            buttonText: "Harvest Potatoes"
+    //            anchors.left: potatoActionItem.left
+    //            anchors.bottom: plantPotatoButton.top
+    //            onClicked: harvestPotatoes()
+    //        }
+    //        height: gameCanvas.height
+    //    }
 
     Row {
         z: 1
@@ -212,12 +225,10 @@ Item {
         }
     }
 
-
-
     Button {
         id: plantPotatoButton
         z: 2
-        buttonText: "Plant Potato"
+        buttonText: "Plant"
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.margins: 30
@@ -228,7 +239,7 @@ Item {
         id: harvestButton
         z: 3
         enabled: false
-        buttonText: "Harvest Potatoes"
+        buttonText: "Harvest"
         anchors.left: plantPotatoButton.right
         anchors.bottom: parent.bottom
         anchors.margins: 30

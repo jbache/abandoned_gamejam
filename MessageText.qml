@@ -12,7 +12,7 @@ Rectangle {
     }
     property real yOffset
 
-    Text {
+    FutureText {
         id: text
         anchors.centerIn: parent
         anchors.verticalCenterOffset: yOffset
