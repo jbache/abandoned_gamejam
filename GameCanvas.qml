@@ -33,7 +33,7 @@ Item {
     }
 
     function applyRandomShit() {
-        if (Math.random() > 1/3) {
+        if (Math.random() > 3/4) {
             pendingEvent = randomEventSelector()
             messageDialog.showDialog(randomEvents[pendingEvent])
         }
