@@ -12,7 +12,6 @@ Window {
     property int potatoes: 10
     property int totalDaysToRescue: 10
     property int h2o: 100
-    property bool watermakerworking: true
     property real energy: 1
     property ActionItem activeItem: null
     property bool modalDialog: messageDialog.visible
@@ -68,7 +67,7 @@ Window {
             print("Message dialog: " + gameCanvas.pendingEvent)
             if (gameCanvas.pendingEvent !== -1) {
                 if (gameCanvas.pendingEvent == 0) {
-                    watermakerworking = false
+                    h2o = h2o * .5
                 } else if (gameCanvas.pendingEvent == 1) {
                     potatoes = potatoes - 10
                 } else if (gameCanvas.pendingEvent == 2) {

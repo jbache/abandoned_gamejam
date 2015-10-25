@@ -7,7 +7,7 @@ Item {
     signal nextSol()
 
     property int pendingEvent: -1
-    property var randomEvents: ["Your H20 maker broke. <br> You can't produce water for 2 days!",
+    property var randomEvents: ["Your H20 maker exploded. <br> Lose 50% water!",
         "Martian zombies came for your potatos. <br> You must give them 10 potatos or they eat your brains!",
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
@@ -18,6 +18,16 @@ Item {
         anchors.left: parent.left
         anchors.margins: 20
         text: "Potatoes: " + window.potatoes
+        z:1
+    }
+
+    FutureText {
+        id: water_indicator
+        //anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.left: potato_indicator.right
+        anchors.margins: 20
+        text: "Water: " + window.h2o
         z:1
     }
 
@@ -39,7 +49,6 @@ Item {
         print("end turn button clicked")
         sol +=1
         potatoes -= 1;
-        h2o += 1;
         energy = 1;
         messageText.showMessage("Sol " + sol);
         applyRandomShit()
