@@ -15,13 +15,11 @@ Item {
         print ("message ", messagetext )
     }
 
-    function closeDialog() {
-        dialog.opacity = 0
-    }
-
     MouseArea {
         anchors.fill: parent
-        onClicked: dialog.opacity = 0
+        onClicked: {
+            dialog.clicked()
+        }
     }
 
     Rectangle {
@@ -41,8 +39,6 @@ Item {
             color: "white"
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
-
-
 
     }
 

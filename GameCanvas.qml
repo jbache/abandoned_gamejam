@@ -6,6 +6,7 @@ Item {
     property var potatoList: []
     signal nextSol()
 
+    property int pendingEvent: -1
     property var randomEvents: ["Your H20 maker broke. <br> You can't produce water for 2 days!",
         "Martian zombies came for your potatos. <br> You must give them 10 potatos or they eat your brains!",
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
@@ -17,15 +18,25 @@ Item {
         x: 20
         color: "white"
         font.pixelSize: 20
-        text: "sol: " + window.sol
+        text: "sol: " + window.sol + "   "
+        z:1
+    }
+
+    Text {
+        id: potato_indicator
+        //anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.left: sol_indicator.right
+        color: "white"
+        font.pixelSize: 20
+        text: "potatoes: " + window.potatoes
         z:1
     }
 
     function applyRandomShit() {
         if (Math.random() > 1/3) {
- //       if (Math.random() > 1/5) {
-            var eventIndex = randomEventSelector()
-            messageDialog.showDialog(randomEvents[eventIndex])
+            pendingEvent = randomEventSelector()
+            messageDialog.showDialog(randomEvents[pendingEvent])
         }
         randomEventSelector()
     }
@@ -34,7 +45,6 @@ Item {
         var numEvents = randomEvents.length;
         var event = Math.floor(Math.random() *numEvents)
         return event
-        //        print("event: " + randomEvents[event])
     }
 
     function endTurn() {
@@ -185,34 +195,6 @@ Item {
     }
 
 
-    //    ActionItem {
-    //        id: potatoActionItem
-
-    //        width: parent.width * 0.4
-    //        title:  "Potatoes"
-    //        anchors.bottom: parent.bottom
-    //        Text {
-    //            anchors.centerIn: parent
-    //            text: title
-    //            color: "white"
-    //            font.pixelSize: 30
-    //        }
-
-    //        Button {
-    //            id: plantPotatoButton
-    //            buttonText: "Plant Potato"
-    //            anchors.left: potatoActionItem.left
-    //            anchors.bottom: potatoActionItem.bottom
-    //            onClicked: plantPotato()
-    //        }
-    //        Button {
-    //            buttonText: "Harvest Potatoes"
-    //            anchors.left: potatoActionItem.left
-    //            anchors.bottom: plantPotatoButton.top
-    //            onClicked: harvestPotatoes()
-    //        }
-    //        height: gameCanvas.height
-    //    }
 
     Row {
         z: 1
