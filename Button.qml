@@ -2,9 +2,9 @@ import QtQuick 2.0
 
 Rectangle {
     id: button
-    width: 200
+    width: 150
     height: 50
-    property int fontsize: 30
+    property int fontsize: 25
 
     opacity: enabled ? 1 : 0.5
     property string buttonText: "buttonTitle"

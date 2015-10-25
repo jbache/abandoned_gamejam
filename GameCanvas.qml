@@ -12,6 +12,16 @@ Item {
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
 
+    function getPlantCount() {
+        var count = 0
+        for (var i in potatoList) {
+            if (potatoList[i] !== -1) {
+                count ++
+            }
+        }
+        return count;
+    }
+
     function applyRandomShit() {
         if (Math.random() > 1/3) {
             pendingEvent = randomEventSelector()
@@ -75,12 +85,23 @@ Item {
         }
         harvestButton.enabled = false;
         potatoList = p;
-
     }
 
     Component {
         id: potatoComponent
         Potato {}
+    }
+
+    function waterPotatoes() {
+        var num_potatoes = getPlantCount()
+        print("potatoes planted: "+ num_potatoes)
+        h2o = h2o - num_potatoes * 2
+    }
+
+    function makeWater() {
+        makingWater.show()
+        h2o = h2o + 10
+        energy = energy - .5
     }
 
     function plantPotato() {
@@ -192,36 +213,6 @@ Item {
         onClicked: { player.x = mouse.x; }
     }
 
-
-    //    ActionItem {
-    //        id: potatoActionItem
-
-    //        width: parent.width * 0.4
-    //        title:  "Potatoes"
-    //        anchors.bottom: parent.bottom
-    //        FutureText {
-    //            anchors.centerIn: parent
-    //            text: title
-    //            color: "white"
-    //            font.pixelSize: 30
-    //        }
-
-    //        Button {
-    //            id: plantPotatoButton
-    //            buttonText: "Plant Potato"
-    //            anchors.left: potatoActionItem.left
-    //            anchors.bottom: potatoActionItem.bottom
-    //            onClicked: plantPotato()
-    //        }
-    //        Button {
-    //            buttonText: "Harvest Potatoes"
-    //            anchors.left: potatoActionItem.left
-    //            anchors.bottom: plantPotatoButton.top
-    //            onClicked: harvestPotatoes()
-    //        }
-    //        height: gameCanvas.height
-    //    }
-
     Row {
         z: 1
         anchors.bottom: ground.top
@@ -272,7 +263,27 @@ Item {
         onClicked: harvestPotatoes()
     }
 
+    Button {
+        id: waterPotatoesButton
+        z: 3
+        enabled: true
+        buttonText: "Water <br>potatoes"
+        anchors.left: harvestButton.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 30
+        onClicked: waterPotatoes()
+    }
 
+    Button {
+        id: makeWaterButton
+        z: 3
+        enabled: true
+        buttonText: "Make<br>water"
+        anchors.left: waterPotatoesButton.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 30
+        onClicked: makeWater()
+    }
 
 
 }

@@ -9,7 +9,7 @@ Window {
     height: 600
 
     property int sol: 0
-    property int potatoes: 10
+    property int potatoes: 3
     property int totalDaysToRescue: 10
     property int h2o: 100
     property real energy: 1
@@ -65,6 +65,16 @@ Window {
             opacity: 0
             anchors.fill: parent
             imageSource: "qrc:///images/dead_astronaut.png"
+        }
+
+    Splash {
+            id: makingWater
+            splashText: "Sciencing Water..."
+            z: 1
+            opacity: 0
+            anchors.fill: parent
+            height: parent.height * .75
+            imageSource: "qrc:///images/water.png"
         }
 
 
