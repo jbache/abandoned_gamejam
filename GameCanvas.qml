@@ -8,13 +8,13 @@ Item {
     property var oldPotatoList: []
     signal nextSol()
 
-//    Audio {
-//        autoLoad: true
-//        autoPlay: true
-//        source: "qrc:///Countdown.mp3"
-//        onError: print (errorString)
-//        onStatusChanged: print (status)
-//    }
+    //    Audio {
+    //        autoLoad: true
+    //        autoPlay: true
+    //        source: "qrc:///Countdown.mp3"
+    //        onError: print (errorString)
+    //        onStatusChanged: print (status)
+    //    }
 
     property int pendingEvent: -1
     property var randomEvents: ["Your H20 maker exploded. <br> Lose 50% water!",
@@ -263,47 +263,42 @@ Item {
         }
     }
 
-    Button {
-        id: plantPotatoButton
+    Row {
+        anchors.margins: 20
+        spacing: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: ground.verticalCenter
         z: 2
-        buttonText: "Plant"
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        anchors.margins: 30
-        onClicked: plantPotato()
-    }
+        Button {
+            id: plantPotatoButton
+            z: 2
+            buttonText: "Plant"
+            onClicked: plantPotato()
+        }
 
-    Button {
-        id: harvestButton
-        z: 3
-        enabled: false
-        buttonText: "Harvest"
-        anchors.left: plantPotatoButton.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 30
-        onClicked: harvestPotatoes()
-    }
+        Button {
+            id: harvestButton
+            z: 3
+            enabled: false
+            buttonText: "Harvest"
+            onClicked: harvestPotatoes()
+        }
 
-    Button {
-        id: waterPotatoesButton
-        z: 3
-        enabled: true
-        buttonText: "Water <br>potatoes"
-        anchors.left: harvestButton.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 30
-        onClicked: waterPotatoes()
-    }
+        Button {
+            id: waterPotatoesButton
+            z: 3
+            enabled: true
+            buttonText: "Water <br>potatoes"
+            onClicked: waterPotatoes()
+        }
 
-    Button {
-        id: makeWaterButton
-        z: 3
-        enabled: true
-        buttonText: "Make<br>water"
-        anchors.left: waterPotatoesButton.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 30
-        onClicked: makeWater()
+        Button {
+            id: makeWaterButton
+            z: 3
+            enabled: true
+            buttonText: "Make<br>water"
+            onClicked: makeWater()
+        }
     }
 
 
