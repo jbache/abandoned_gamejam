@@ -137,7 +137,7 @@ Item {
     function plantPotato() {
         updateOldPotatoList()
         potatoes -= 1;
-        energy -= .2;
+        energy -= .4;
 
         var _list = potatoList;
         // If a spot is available, plant there
@@ -294,6 +294,7 @@ Item {
         Button {
             id: plantPotatoButton
             z: 2
+            enabled: energy > 0.4
             buttonText: "Plant"
             onClicked: plantPotato()
         }

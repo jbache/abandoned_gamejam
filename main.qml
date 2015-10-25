@@ -8,7 +8,7 @@ Window {
     width: 800
     height: 600
 
-    visibility: "FullScreen"
+//    visibility: "FullScreen"
     color: "#333"
 
     property real scaleFactor: window.width/800
