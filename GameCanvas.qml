@@ -12,17 +12,6 @@ Item {
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
 
-
-    FutureText {
-        id: water_indicator
-        //anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.left: potato_indicator.right
-        anchors.margins: 20
-        text: "Water: " + window.h2o
-        z:1
-    }
-
     function applyRandomShit() {
         if (Math.random() > 1/3) {
             pendingEvent = randomEventSelector()
@@ -148,7 +137,6 @@ Item {
     Column {
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.verticalCenter: potato.verticalCenter
         anchors.margins: 10
         spacing: 10
         IconIndicator {
@@ -156,7 +144,7 @@ Item {
             iconSource: "qrc:///images/potato.png"
         }
         IconIndicator {
-            text:"Water: " + window.potatoes
+            text:"Water: " +  window.h2o
             iconSource: "qrc:///images/water.png"
         }
     }
