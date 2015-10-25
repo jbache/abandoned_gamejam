@@ -8,7 +8,6 @@
         <file>Button.qml</file>
         <file>MessageDialog.qml</file>
         <file>images/ground.jpg</file>
-        <file>images/matt_damon.png</file>
         <file>GameCanvas.qml</file>
         <file>SpaceshipIndicator.qml</file>
         <file>images/earth.png</file>
@@ -23,5 +22,7 @@
         <file>images/GameCanvas.qml</file>
         <file>images/potatoplant_2.png</file>
         <file>Potato.qml</file>
+        <file>images/mattdamon_sad.png</file>
+        <file>images/mattdamon_happy.png</file>
     </qresource>
 </RCC>

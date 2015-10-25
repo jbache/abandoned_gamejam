@@ -169,24 +169,11 @@ Item {
         fillMode: Image.PreserveAspectFit
         height: window.height/4
         Behavior on x { NumberAnimation {} }
-        source: "qrc:///images/matt_damon.png"
+        source: "qrc:///images/mattdamon_happy.png"
         //            y: window.height - height + 10 - 10 * Math.sin(x / 50.5)
         onXChanged: { playerMoved(); }
     }
 
-    Rectangle {
-        id: ground
-        height: 110
-        opacity: 0.9
-        anchors.bottom: parent.bottom
-        width: parent.width
-        color: "#f3834b"
-        Rectangle {
-            height: 2
-            width: parent.width
-            color: Qt.darker(parent.color, 1.5)
-        }
-    }
 
     MouseArea {
         id: mouse
@@ -209,6 +196,22 @@ Item {
             Potato { id: potato }
         }
     }
+
+    Rectangle {
+        id: ground
+        height: 110
+        opacity: 0.9
+        z:1
+        anchors.bottom: parent.bottom
+        width: parent.width
+        color: "#f3834b"
+        Rectangle {
+            height: 2
+            width: parent.width
+            color: Qt.darker(parent.color, 1.5)
+        }
+    }
+
 
 
     Button {

@@ -1,5 +1,6 @@
 import QtQuick 2.3
 import QtQuick.Window 2.2
+import QtMultimedia 5.0
 
 Window {
     id: window
@@ -37,12 +38,17 @@ Window {
         anchors.bottom: parent.bottom
     }
 
+    Audio {
+        source: "qrc:///Escape_From_the_Insane_Machines.mp3"
+        Component.onCompleted: play()
+    }
+
     Splash {
         id: splash
         z: 1
         text: "Team Rocket Science"
         anchors.fill: parent
-        opacity: 0
+        opacity: 1
     }
 
     Splash {
