@@ -259,7 +259,7 @@ Item {
     Row {
         z: 1
         anchors.bottom: ground.top
-        anchors.bottomMargin: -101
+        anchors.bottomMargin: -101 * scaleFactor
         anchors.left: parent.left
         anchors.leftMargin: 30
         spacing: 10

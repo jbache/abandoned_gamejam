@@ -7,8 +7,11 @@ Window {
     visible: true
     width: 800
     height: 600
+
+    visibility: "FullScreen"
     color: "#333"
 
+    property real scaleFactor: window.width/800
     property int sol: 0
     property int potatoes: 8
     property int totalDaysToRescue: 10
@@ -21,7 +24,7 @@ Window {
     function calculateDistanceTraveledEachDay() {
         var distance = width - gameProgress.earth.width - gameProgress.mars.width;
         var travelEachDay = distance/(totalDaysToRescue+1);
-        print ("travel Each Day: " + travelEachDay);
+        //print ("travel Each Day: " + travelEachDay);
         return travelEachDay;
     }
 

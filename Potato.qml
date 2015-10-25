@@ -1,8 +1,8 @@
 import QtQuick 2.0
 
 Image {
-    width: 100
-    height: 280
+    width: 100 * scaleFactor
+    height: 280 * scaleFactor
 
     fillMode: Image.PreserveAspectFit
     source: modelData> -1 ?"qrc:///images/potatoplant_" + modelData + ".png" : ""
