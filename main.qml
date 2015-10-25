@@ -55,6 +55,7 @@ Window {
 
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
+        days_til_rescue: totalDaysToRescue
         id: gameProgress
         z: 1
         sol_count: sol

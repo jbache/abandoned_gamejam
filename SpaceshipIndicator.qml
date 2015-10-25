@@ -22,14 +22,13 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         x: earth.width + rocket.width/2;
         Repeater {
-            model: days_til_rescue-2
+            model: days_til_rescue
             Image {
                 id: _dot
                 source: "qrc:///images/sun.png"
                 height: 10
                 width: 10
                 fillMode: Image.PreserveAspectFit
-               // x: earth.width;
             }
         }
     }
