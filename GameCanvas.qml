@@ -114,7 +114,6 @@ Item {
 
     function waterPotatoes() {
         var num_potatoes = getPlantCount()
-        print("potatoes planted: "+ Math.max(0, num_potatoes))
         h2o = h2o - num_potatoes * 2
     }
 
@@ -197,7 +196,7 @@ Item {
         anchors.margins: 10
         spacing: 10
         IconIndicator {
-            text:"Potatoes: " + window.potatoes
+            text:"Potatoes: " + Math.max(0, window.potatoes)
             iconSource: "qrc:///images/potato.png"
         }
         IconIndicator {

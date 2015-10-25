@@ -3,8 +3,9 @@ import QtQuick 2.0
 Rectangle {
     id: splash
     color: "#333"
-    property string splashText: ""
 
+    property string splashText: ""
+    property alias text: innerText.text
     property alias imageSource: image.source
     Behavior on opacity { NumberAnimation {} }
 
@@ -27,14 +28,12 @@ Rectangle {
         }
     }
 
-    property alias text: innerText.text
-
     Column {
         spacing: 20
         anchors.centerIn: parent
         Image {
             id: image
-            height: splash.height* .7
+            height: splash.height* .6
             fillMode: Image.PreserveAspectFit
             anchors.horizontalCenter: parent.horizontalCenter
         }

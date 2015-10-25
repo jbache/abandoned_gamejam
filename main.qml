@@ -55,12 +55,24 @@ Window {
         anchors.bottom: parent.bottom
     }
 
+
     Splash {
-        id: splash
+        id: splash1
         z: 1
+        imageSource: "qrc:///images/rocketscience.png"
         text: "Team Rocket Science"
         anchors.fill: parent
         opacity: 1
+        onClicked: splash2.show()
+    }
+
+    Splash {
+        id: splash2
+        z: 1
+        imageSource: "qrc:///images/splash.png"
+        text: "Stuck on Mars!"
+        anchors.fill: parent
+        opacity: 0
     }
 
     Splash {

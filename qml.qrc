@@ -34,5 +34,7 @@
         <file>sounds/drop.wav</file>
         <file>images/make_water.png</file>
         <file>sounds/end.wav</file>
+        <file>images/rocketscience.png</file>
+        <file>images/splash.png</file>
     </qresource>
 </RCC>
