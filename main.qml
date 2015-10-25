@@ -9,12 +9,13 @@ Window {
     height: 600
 
     property int sol: 0
-    property int potatoes: 3
+    property int potatoes: 8
     property int totalDaysToRescue: 10
     property int h2o: 100
     property real energy: 1
     property ActionItem activeItem: null
     property bool modalDialog: messageDialog.visible
+    property int martianStealsNPotatoes: 2
 
     function calculateDistanceTraveledEachDay() {
         var distance = width - gameProgress.earth.width - gameProgress.mars.width;
@@ -70,6 +71,7 @@ Window {
     Splash {
             id: makingWater
             splashText: "Sciencing Water..."
+            color: "#FFDE17"
             z: 1
             opacity: 0
             anchors.fill: parent
@@ -85,7 +87,7 @@ Window {
                 if (gameCanvas.pendingEvent == 0) {
                     h2o = h2o * .5
                 } else if (gameCanvas.pendingEvent == 1) {
-                    potatoes = potatoes - 10
+                    potatoes = potatoes - martianStealsNPotatoes
                 } else if (gameCanvas.pendingEvent == 2) {
                     energy = .5
                 }

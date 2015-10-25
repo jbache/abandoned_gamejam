@@ -18,7 +18,7 @@ Item {
 
     property int pendingEvent: -1
     property var randomEvents: ["Your H20 maker exploded. <br> Lose 50% water!",
-        "Martian zombies came for your potatos. <br> You must give them 10 potatos or they eat your brains!",
+        "Martian zombies came for your potatos. <br> You must give them 2 potatos or they eat your brains!",
         "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
 
