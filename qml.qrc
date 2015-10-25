@@ -32,8 +32,7 @@
         <file>images/water.png</file>
         <file>IconIndicator.qml</file>
         <file>sounds/drop.wav</file>
-	<file>images/make_water.png</file>
+        <file>images/make_water.png</file>
         <file>sounds/end.wav</file>
-        <file>music/escape.mp3</file>
     </qresource>
 </RCC>

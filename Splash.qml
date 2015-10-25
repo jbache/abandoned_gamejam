@@ -29,9 +29,12 @@ Rectangle {
 
     property alias text: innerText.text
 
+    Column {
+        spacing: 20
+        anchors.centerIn: parent
         Image {
             id: image
-            height: splash.height* .9
+            height: splash.height* .7
             fillMode: Image.PreserveAspectFit
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -39,10 +42,10 @@ Rectangle {
             id: innerText
             font.pixelSize: 30
             color: "white"
-            anchors.top: image.bottom
             anchors.horizontalCenter: parent.horizontalCenter
             text: splashText
         }
+    }
 
 }
 

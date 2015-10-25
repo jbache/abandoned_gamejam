@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Item {
     id: dialog
+    parent: window.contentItem
     anchors.fill: parent
 
     opacity: 0
@@ -12,7 +13,6 @@ Item {
     function showDialog(messagetext) {
         message.text = messagetext ;
         dialog.opacity = 1;
-        print ("message ", messagetext )
     }
 
     MouseArea {
@@ -24,11 +24,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        anchors.margins: 50
-        radius: 50
-        color: "#cc000000"
-        border.color: "#77ffffff"
-        border.width: 2
+        color: "#f26522"
         FutureText {
             id: message
             anchors.fill:parent
@@ -39,10 +35,6 @@ Item {
             color: "white"
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
-
     }
-
-
-
 }
 

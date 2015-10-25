@@ -36,6 +36,7 @@ Item {
         if (Math.random() > 3/4) {
             pendingEvent = randomEventSelector()
             messageDialog.showDialog(randomEvents[pendingEvent])
+            endSound.play()
         }
         randomEventSelector()
     }
@@ -53,7 +54,6 @@ Item {
     }
 
     function endTurn() {
-        endSound.play()
         sol +=1
         potatoes -= 1;
         energy = 1;
@@ -63,8 +63,10 @@ Item {
         if (sol == totalDaysToRescue)
             onClicked: gameWon.show()
 
-        if (isGameLost() === 1)
+        if (isGameLost() === 1) {
             onClicked: gameLost.show()
+            endSound.play()
+        }
 
         nextSol()
         var p = potatoList
@@ -112,7 +114,7 @@ Item {
 
     function waterPotatoes() {
         var num_potatoes = getPlantCount()
-        print("potatoes planted: "+ num_potatoes)
+        print("potatoes planted: "+ Math.max(0, num_potatoes))
         h2o = h2o - num_potatoes * 2
     }
 

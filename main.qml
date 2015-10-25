@@ -33,12 +33,12 @@ Window {
         source: "qrc:///sounds/end.wav"
     }
 
-    MediaPlayer {
-        id: music
-        source: "qrc:///music/escape.mp3"
-        autoLoad: true
-        autoPlay: true
-    }
+//    MediaPlayer {
+//        id: music
+//        source: "qrc:///music/escape.mp3"
+//        autoLoad: true
+//        autoPlay: true
+//    }
 
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
@@ -77,6 +77,14 @@ Window {
             opacity: 0
             anchors.fill: parent
             imageSource: "qrc:///images/dead_astronaut.png"
+
+            FutureText {
+                anchors.bottom: parent.bottom
+                anchors.margins: 10
+                color: "white"
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Tap to restart"
+            }
         }
 
     Splash {
@@ -90,7 +98,8 @@ Window {
 
     MessageText { id: messageText }
 
-    MessageDialog { id: messageDialog
+    MessageDialog {
+        id: messageDialog
         onClicked: {
             print("Message dialog: " + gameCanvas.pendingEvent)
             if (gameCanvas.pendingEvent !== -1) {
