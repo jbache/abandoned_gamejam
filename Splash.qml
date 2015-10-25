@@ -32,6 +32,7 @@ Rectangle {
         Image {
             id: image
             height: splash.height* .9
+            fillMode: Image.PreserveAspectFit
             anchors.horizontalCenter: parent.horizontalCenter
         }
         FutureText {

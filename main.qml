@@ -73,7 +73,6 @@ Window {
             z: 1
             opacity: 0
             anchors.fill: parent
-            height: parent.height * .75
             imageSource: "qrc:///images/make_water.png"
         }
 
