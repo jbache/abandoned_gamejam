@@ -37,17 +37,12 @@ Window {
         anchors.bottom: parent.bottom
     }
 
-    Audio {
-        source: "qrc:///Escape_From_the_Insane_Machines.mp3"
-        Component.onCompleted: play()
-    }
-
     Splash {
         id: splash
         z: 1
         text: "Team Rocket Science"
         anchors.fill: parent
-        opacity: 0
+        opacity: 1
     }
 
     Splash {
@@ -59,14 +54,13 @@ Window {
     }
 
     Splash {
-            id: gameLost
-            splashText: "Game over. You died :("
-            z: 1
-            opacity: 0
-            anchors.fill: parent
-            imageSource: "qrc:///images/dead_astronaut.png"
-        }
-
+        id: gameLost
+        splashText: "Game over. You died :("
+        z: 1
+        opacity: 0
+        anchors.fill: parent
+        imageSource: "qrc:///images/dead_astronaut.png"
+    }
 
     MessageText { id: messageText }
 
@@ -81,8 +75,8 @@ Window {
                 } else if (gameCanvas.pendingEvent == 2) {
                     energy = .5
                 }
-               gameCanvas.pendingEvent = -1
-               messageDialog.opacity = 0
+                gameCanvas.pendingEvent = -1
+                messageDialog.opacity = 0
             }
         }
     }

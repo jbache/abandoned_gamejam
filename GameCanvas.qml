@@ -1,10 +1,19 @@
 import QtQuick 2.5
+import QtMultimedia 5.5
 
 Item {
     id: game
     property var actionItems: []
     property var potatoList: []
     signal nextSol()
+
+//    Audio {
+//        autoLoad: true
+//        autoPlay: true
+//        source: "qrc:///Countdown.mp3"
+//        onError: print (errorString)
+//        onStatusChanged: print (status)
+//    }
 
     property int pendingEvent: -1
     property var randomEvents: ["Your H20 maker exploded. <br> Lose 50% water!",
@@ -146,6 +155,7 @@ Item {
         anchors.top: parent.top
         anchors.margins: 20
     }
+
 
     Column {
         anchors.left: parent.left
