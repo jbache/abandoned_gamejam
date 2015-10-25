@@ -6,9 +6,9 @@ Item {
     property var potatoList: []
     signal nextSol()
 
-    property var randomEvents: ["Your H20 maker broke!",
-        "Martian zombies came for your potatos!",
-        "Your radio to NASA broke!"]
+    property var randomEvents: ["Your H20 maker broke. <br> You can't produce water for 2 days!",
+        "Martian zombies came for your potatos. <br> You must give them 10 potatos or they eat your brains!",
+        "Your radio to NASA broke. <br> You must spend 50% of your energy today to fix it."]
 
     Text {
         id: sol_indicator

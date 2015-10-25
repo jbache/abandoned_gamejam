@@ -8,23 +8,21 @@ Item {
     visible: opacity > 0
     Behavior on opacity { NumberAnimation {} }
     signal clicked
- //   property int eventResponse: 0
 
     function showDialog(messagetext) {
-        message.text = messagetext;
+        message.text = messagetext ;
         dialog.opacity = 1;
         print ("message ", messagetext )
     }
 
     function closeDialog() {
-        //anchors.fill: parent
         dialog.opacity = 0
     }
 
-    //MouseArea {
-    //    anchors.fill: parent
-    //    onClicked: dialog.opacity = 0
-    //}
+    MouseArea {
+        anchors.fill: parent
+        onClicked: dialog.opacity = 0
+    }
 
     Rectangle {
         anchors.fill: parent
@@ -36,23 +34,16 @@ Item {
         Text {
             id: message
             anchors.fill:parent
+            width: parent.width * .7
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.pixelSize: 50
+            font.pixelSize: 40
             color: "white"
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
-        Button {
-            id: eventButton
-            width: 100
-            fontsize: 20
-            buttonText: "Fix <br>it"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            z:1
-            onClicked: closeDialog()
-        }
+
+
     }
 
 
