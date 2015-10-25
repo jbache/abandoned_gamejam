@@ -23,6 +23,11 @@ Window {
         return travelEachDay;
     }
 
+    SoundEffect {
+        id: dropSound
+        source: "qrc:///sounds/drop.wav"
+    }
+
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
         id: gameProgress
@@ -80,6 +85,5 @@ Window {
             }
         }
     }
-
 }
 

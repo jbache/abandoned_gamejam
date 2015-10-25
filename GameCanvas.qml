@@ -120,6 +120,7 @@ Item {
             _list.push(0);
             potatoList = _list;
         }
+        dropSound.play()
     }
 
     function playerMoved() {
