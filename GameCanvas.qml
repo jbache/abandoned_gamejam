@@ -46,7 +46,6 @@ Item {
     }
 
     function endTurn() {
-        print("end turn button clicked")
         sol +=1
         potatoes -= 1;
         energy = 1;
@@ -55,6 +54,9 @@ Item {
         calculateDistanceTraveledEachDay();
         if (sol == totalDaysToRescue)
             onClicked: gameWon.show()
+
+        if (isGameLost() === 1)
+            onClicked: gameLost.show()
 
         nextSol()
         var p = potatoList
@@ -66,6 +68,17 @@ Item {
             }
         }
         potatoList = p;
+    }
+
+    function isGameLost() {
+        var gameLost = 0
+        if (window.potatoes < -1) {
+            gameLost = 1
+        }
+        if (window.h2o <= 0) {
+            gameLost = 1
+        }
+        return gameLost
     }
 
 

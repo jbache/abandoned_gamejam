@@ -54,10 +54,18 @@ Window {
         id: gameWon
         z: 1
         opacity: 0
-        //text: "VICTOLEE"
         anchors.fill: parent
         imageSource: "qrc:///images/VictoryMeme.png"
     }
+
+    Splash {
+            id: gameLost
+            splashText: "Game over. You died :("
+            z: 1
+            opacity: 0
+            anchors.fill: parent
+            imageSource: "qrc:///images/dead_astronaut.png"
+        }
 
 
     MessageText { id: messageText }

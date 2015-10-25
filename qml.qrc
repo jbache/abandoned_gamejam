@@ -26,5 +26,6 @@
         <file>FutureText.qml</file>
         <file>fonts/NEUROPOL.ttf</file>
         <file>images/ground.png</file>
+        <file>images/dead_astronaut.png</file>
     </qresource>
 </RCC>
