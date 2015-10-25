@@ -173,11 +173,20 @@ Item {
     Image {
         source: "qrc:///images/ground.png"
         anchors.fill: parent
+        anchors.top: parent.top
         Rectangle {
             anchors.fill: parent
             color: "#eeec7b"
             opacity: 0.5
         }
+    }
+
+    FutureText {
+        anchors.right: energyBar.left
+        anchors.top: parent.top
+        anchors.margins: 20
+        text: "Energy: "
+        color: "#000"
     }
 
     ProgressBar {
