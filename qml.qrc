@@ -39,5 +39,6 @@
         <file>images/splash.png</file>
         <file>music/rebuilding.mp3</file>
         <file>music/breakdown.mp3</file>
+	<file>images/sun.png</file>
     </qresource>
 </RCC>

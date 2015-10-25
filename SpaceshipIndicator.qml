@@ -16,6 +16,17 @@ Rectangle {
     property alias mars: _mars
 
     Image {
+        id: _dot
+        source: "qrc:///images/earth.png"
+        height: 20
+        width: 20
+        fillMode: Image.PreserveAspectFit
+        anchors.verticalCenter: parent.verticalCenter
+        x: earth.width + 20;
+        //calculateDistanceTraveledEachDay(totalTravelDays);
+    }
+
+    Image {
         id: _rocket
         source: "qrc:///images/rocket.png"
         height: 50
