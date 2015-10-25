@@ -5,11 +5,11 @@ Item {
     height: 27
 
     property real progress
-    property color fillColor: "yellow"
+    property color fillColor: "#00a79d"
 
     Rectangle {
         anchors.fill: parent
-        color: "gray"
+        color: "white"
         opacity: 0.9
 
         Rectangle {

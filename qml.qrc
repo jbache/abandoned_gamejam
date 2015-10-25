@@ -7,7 +7,6 @@
         <file>MessageText.qml</file>
         <file>Button.qml</file>
         <file>MessageDialog.qml</file>
-        <file>images/ground.jpg</file>
         <file>GameCanvas.qml</file>
         <file>SpaceshipIndicator.qml</file>
         <file>images/earth.png</file>
@@ -26,5 +25,6 @@
         <file>images/mattdamon_happy.png</file>
         <file>FutureText.qml</file>
         <file>fonts/NEUROPOL.ttf</file>
+        <file>images/ground.png</file>
     </qresource>
 </RCC>

@@ -15,7 +15,10 @@ Item {
         id: potato_indicator
         //anchors.left: parent.left
         anchors.top: parent.top
-        x: 20
+        anchors.left: parent.left
+        anchors.margins: 20
+        text: "Potatoes: " + window.potatoes
+        z:1
     }
 
     function applyRandomShit() {
@@ -122,8 +125,13 @@ Item {
     }
 
     Image {
-        source: "qrc:///images/ground.jpg"
+        source: "qrc:///images/ground.png"
         anchors.fill: parent
+        Rectangle {
+            anchors.fill: parent
+            color: "#eeec7b"
+            opacity: 0.5
+        }
     }
 
     ProgressBar {
@@ -131,16 +139,16 @@ Item {
         width: 200
         progress: energy
         z: 1
-        anchors.right: endSolButton.left
+        anchors.right: parent.right
         anchors.top: parent.top
-        anchors.margins: 30
+        anchors.margins: 20
     }
 
     Button {
         id: endSolButton
-        width: 50
-        fontsize: 20
-        buttonText: "End <br>sol"
+        anchors.top: energyBar.bottom
+        anchors.margins: 20
+        buttonText: "End sol"
         onClicked: endTurn()
         anchors.right: parent.right
         z:1

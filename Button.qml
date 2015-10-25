@@ -2,8 +2,8 @@ import QtQuick 2.0
 
 Rectangle {
     id: button
-    width: 260
-    height: 60
+    width: 200
+    height: 50
     property int fontsize: 30
 
     opacity: enabled ? 1 : 0.5
@@ -11,16 +11,15 @@ Rectangle {
     signal clicked
 
     anchors.margins: 10
-    border.color: "transparent"
-    color: buttonID.pressed ? "#33ffffff" : "#77ffffff"
-    radius: 10
+    border.color: "white"
+    border.width: 2
+    color: buttonID.pressed ? "#ffffff" : "white"
 
 
     FutureText {
         anchors.centerIn: parent
-        color: "white"
-        font.pixelSize: fontsize
         text: buttonText
+        color: "#f26522"
     }
 
     MouseArea {
