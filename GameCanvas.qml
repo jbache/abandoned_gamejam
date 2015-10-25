@@ -53,6 +53,15 @@ Item {
             oldPotatoList.push(potatoList[i])
     }
 
+    function resetGame () {
+        oldPotatoList = []
+        potatoList = []
+        sol = 0
+        potatoes = 8
+        h2o = 100
+        energy =  1
+    }
+
     function endTurn() {
         sol +=1
         potatoes -= 1;
@@ -64,8 +73,10 @@ Item {
             onClicked: gameWon.show()
 
         if (isGameLost() === 1) {
+            music.stop()
             onClicked: gameLost.show()
             endSound.play()
+            resetGame ()
         }
 
         nextSol()

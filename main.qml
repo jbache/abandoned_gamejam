@@ -110,6 +110,8 @@ Window {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Tap to restart"
             }
+            onClicked: music.start()
+
         }
 
     Splash {
