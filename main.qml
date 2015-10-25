@@ -23,6 +23,11 @@ Window {
         return travelEachDay;
     }
 
+    SoundEffect {
+        id: dropSound
+        source: "qrc:///sounds/drop.wav"
+    }
+
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
         id: gameProgress
@@ -37,17 +42,12 @@ Window {
         anchors.bottom: parent.bottom
     }
 
-    Audio {
-        source: "qrc:///Escape_From_the_Insane_Machines.mp3"
-        Component.onCompleted: play()
-    }
-
     Splash {
         id: splash
         z: 1
         text: "Team Rocket Science"
         anchors.fill: parent
-        opacity: 0
+        opacity: 1
     }
 
     Splash {
@@ -77,7 +77,6 @@ Window {
             imageSource: "qrc:///images/water.png"
         }
 
-
     MessageText { id: messageText }
 
     MessageDialog { id: messageDialog
@@ -91,11 +90,10 @@ Window {
                 } else if (gameCanvas.pendingEvent == 2) {
                     energy = .5
                 }
-               gameCanvas.pendingEvent = -1
-               messageDialog.opacity = 0
+                gameCanvas.pendingEvent = -1
+                messageDialog.opacity = 0
             }
         }
     }
-
 }
 

@@ -1,10 +1,20 @@
 import QtQuick 2.5
+import QtMultimedia 5.5
 
 Item {
     id: game
     property var actionItems: []
     property var potatoList: []
+    property var oldPotatoList: []
     signal nextSol()
+
+//    Audio {
+//        autoLoad: true
+//        autoPlay: true
+//        source: "qrc:///Countdown.mp3"
+//        onError: print (errorString)
+//        onStatusChanged: print (status)
+//    }
 
     property int pendingEvent: -1
     property var randomEvents: ["Your H20 maker exploded. <br> Lose 50% water!",
@@ -36,6 +46,12 @@ Item {
         return event
     }
 
+    function updateOldPotatoList() {
+        oldPotatoList = []
+        for (var i in potatoList)
+            oldPotatoList.push(potatoList[i])
+    }
+
     function endTurn() {
         sol +=1
         potatoes -= 1;
@@ -59,6 +75,7 @@ Item {
             }
         }
         potatoList = p;
+        updateOldPotatoList()
     }
 
     function isGameLost() {
@@ -105,6 +122,7 @@ Item {
     }
 
     function plantPotato() {
+        updateOldPotatoList()
         potatoes -= 1;
         energy -= .2;
 
@@ -124,6 +142,7 @@ Item {
             _list.push(0);
             potatoList = _list;
         }
+        dropSound.play()
     }
 
     function playerMoved() {
@@ -167,6 +186,7 @@ Item {
         anchors.top: parent.top
         anchors.margins: 20
     }
+
 
     Column {
         anchors.left: parent.left
