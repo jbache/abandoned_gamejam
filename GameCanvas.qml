@@ -53,6 +53,7 @@ Item {
     }
 
     function endTurn() {
+        endSound.play()
         sol +=1
         potatoes -= 1;
         energy = 1;

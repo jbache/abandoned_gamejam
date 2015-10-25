@@ -28,6 +28,18 @@ Window {
         source: "qrc:///sounds/drop.wav"
     }
 
+    SoundEffect {
+        id: endSound
+        source: "qrc:///sounds/end.wav"
+    }
+
+    MediaPlayer {
+        id: music
+        source: "qrc:///music/escape.mp3"
+        autoLoad: true
+        autoPlay: true
+    }
+
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
         id: gameProgress
