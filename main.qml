@@ -34,12 +34,20 @@ Window {
         source: "qrc:///sounds/end.wav"
     }
 
-//    MediaPlayer {
-//        id: music
-//        source: "qrc:///music/escape.mp3"
-//        autoLoad: true
-//        autoPlay: true
-//    }
+    MediaPlayer {
+        id: music
+        source: "qrc:///music/rebuilding.mp3"
+        autoLoad: true
+        autoPlay: false
+    }
+
+    MediaPlayer {
+        id: intromusic
+        source: "qrc:///music/breakdown.mp3"
+        autoLoad: true
+        autoPlay: true
+    }
+
 
     SpaceshipIndicator {
         distance_traveled_each_day: calculateDistanceTraveledEachDay(totalDaysToRescue)
@@ -55,12 +63,28 @@ Window {
         anchors.bottom: parent.bottom
     }
 
+
     Splash {
-        id: splash
+        id: splash1
         z: 1
+        imageSource: "qrc:///images/rocketscience.png"
         text: "Team Rocket Science"
         anchors.fill: parent
         opacity: 1
+        onClicked: splash2.show()
+    }
+
+    Splash {
+        id: splash2
+        z: 1
+        imageSource: "qrc:///images/splash.png"
+        text: "Stuck on Mars!"
+        anchors.fill: parent
+        opacity: 0
+        onClicked: {
+            intromusic.stop()
+            music.play()
+        }
     }
 
     Splash {
@@ -86,6 +110,8 @@ Window {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Tap to restart"
             }
+            onClicked: music.start()
+
         }
 
     Splash {

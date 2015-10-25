@@ -35,5 +35,9 @@
         <file>images/make_water.png</file>
         <file>sounds/end.wav</file>
 	<file>images/mars.png</file>
+        <file>images/rocketscience.png</file>
+        <file>images/splash.png</file>
+        <file>music/rebuilding.mp3</file>
+        <file>music/breakdown.mp3</file>
     </qresource>
 </RCC>

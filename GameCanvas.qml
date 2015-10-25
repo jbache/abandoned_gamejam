@@ -53,6 +53,15 @@ Item {
             oldPotatoList.push(potatoList[i])
     }
 
+    function resetGame () {
+        oldPotatoList = []
+        potatoList = []
+        sol = 0
+        potatoes = 8
+        h2o = 100
+        energy =  1
+    }
+
     function endTurn() {
         sol +=1
         potatoes -= 1;
@@ -64,8 +73,10 @@ Item {
             onClicked: gameWon.show()
 
         if (isGameLost() === 1) {
+            music.stop()
             onClicked: gameLost.show()
             endSound.play()
+            resetGame ()
         }
 
         nextSol()
@@ -114,7 +125,6 @@ Item {
 
     function waterPotatoes() {
         var num_potatoes = getPlantCount()
-        print("potatoes planted: "+ Math.max(0, num_potatoes))
         h2o = h2o - num_potatoes * 2
     }
 
@@ -206,7 +216,7 @@ Item {
         anchors.margins: 10
         spacing: 10
         IconIndicator {
-            text:"Potatoes: " + window.potatoes
+            text:"Potatoes: " + Math.max(0, window.potatoes)
             iconSource: "qrc:///images/potato.png"
         }
         IconIndicator {
