@@ -229,6 +229,7 @@ Item {
         id: endSolButton
         anchors.top: energyBar.bottom
         anchors.margins: 20
+        width: 200
         buttonText: "End sol"
         onClicked: endTurn()
         anchors.right: parent.right

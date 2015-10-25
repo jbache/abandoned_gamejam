@@ -7,10 +7,11 @@ Rectangle {
     property string splashText: ""
     property alias text: innerText.text
     property alias imageSource: image.source
-    Behavior on opacity { NumberAnimation {} }
-
+    Behavior on opacity { NumberAnimation { duration: 500} }
+    property alias font: innerText.font
     function show() {
         opacity = 1
+        scaleAnim.restart()
     }
 
     function hide() {
@@ -43,6 +44,15 @@ Rectangle {
             color: "white"
             anchors.horizontalCenter: parent.horizontalCenter
             text: splashText
+
+            NumberAnimation on scale {
+                from: 1.2
+                to: 1
+                easing.type: Easing.OutCubic
+                duration: 1000
+                running: false
+                id: scaleAnim
+            }
         }
     }
 

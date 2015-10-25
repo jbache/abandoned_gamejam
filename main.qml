@@ -7,6 +7,7 @@ Window {
     visible: true
     width: 800
     height: 600
+    color: "#333"
 
     property int sol: 0
     property int potatoes: 8
@@ -54,6 +55,7 @@ Window {
         id: gameProgress
         z: 1
         sol_count: sol
+        visible: false
     }
 
     GameCanvas {
@@ -61,7 +63,10 @@ Window {
         anchors.top: gameProgress.bottom
         width: parent.width
         anchors.bottom: parent.bottom
+        visible: false
     }
+
+    Component.onCompleted: splash1.show()
 
 
     Splash {
@@ -70,13 +75,16 @@ Window {
         imageSource: "qrc:///images/rocketscience.png"
         text: "Team Rocket Science"
         anchors.fill: parent
-        opacity: 1
-        onClicked: splash2.show()
+        opacity: 0
+        onClicked: {
+            splash2.show()
+        }
     }
 
     Splash {
         id: splash2
         z: 1
+        font.pixelSize: 60
         imageSource: "qrc:///images/splash.png"
         text: "Stuck on Mars!"
         anchors.fill: parent
@@ -84,6 +92,8 @@ Window {
         onClicked: {
             intromusic.stop()
             music.play()
+            gameCanvas.visible = true;
+            gameProgress.visible = true;
         }
     }
 
@@ -96,33 +106,33 @@ Window {
     }
 
     Splash {
-            id: gameLost
-            splashText: "Game over. You died :("
-            z: 1
-            opacity: 0
-            anchors.fill: parent
-            imageSource: "qrc:///images/dead_astronaut.png"
+        id: gameLost
+        splashText: "Game over. You died :("
+        z: 1
+        opacity: 0
+        anchors.fill: parent
+        imageSource: "qrc:///images/dead_astronaut.png"
 
-            FutureText {
-                anchors.bottom: parent.bottom
-                anchors.margins: 10
-                color: "white"
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Tap to restart"
-            }
-            onClicked: music.start()
-
+        FutureText {
+            anchors.bottom: parent.bottom
+            anchors.margins: 10
+            color: "white"
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Tap to restart"
         }
+        onClicked: music.start()
+
+    }
 
     Splash {
-            id: makingWater
-            splashText: "Sciencing Water..."
-            color: "#FFDE17"
-            z: 1
-            opacity: 0
-            anchors.fill: parent
-            imageSource: "qrc:///images/make_water.png"
-        }
+        id: makingWater
+        splashText: "Sciencing Water..."
+        color: "#FFDE17"
+        z: 1
+        opacity: 0
+        anchors.fill: parent
+        imageSource: "qrc:///images/make_water.png"
+    }
 
     MessageText { id: messageText }
 
