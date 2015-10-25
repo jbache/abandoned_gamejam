@@ -6,7 +6,7 @@ Rectangle {
     signal clicked;
 
     property int sol_count: 1
-    property int distance_traveled_each_day: 50;
+    property int distance_traveled_each_day: 0;
     color: "#333"
     width: parent.width
     height: 60
@@ -15,16 +15,26 @@ Rectangle {
     property alias rocket: _rocket
     property alias mars: _mars
 
-    Image {
-        id: _dot
-        source: "qrc:///images/earth.png"
-        height: 20
-        width: 20
-        fillMode: Image.PreserveAspectFit
+
+
+    Row {
+        spacing: distance_traveled_each_day-10
         anchors.verticalCenter: parent.verticalCenter
-        x: earth.width + 20;
-        //calculateDistanceTraveledEachDay(totalTravelDays);
+        x: earth.width + rocket.width/2;
+        Repeater {
+            model: days_til_rescue-2
+            Image {
+                id: _dot
+                source: "qrc:///images/sun.png"
+                height: 10
+                width: 10
+                fillMode: Image.PreserveAspectFit
+               // x: earth.width;
+            }
+        }
     }
+
+
 
     Image {
         id: _rocket
