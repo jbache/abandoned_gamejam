@@ -22,6 +22,9 @@ Rectangle {
 
     SequentialAnimation {
         id: scaleAnimation
+        PauseAnimation {
+            duration: 1000
+        }
         ParallelAnimation {
             NumberAnimation{
                 target: messageText
@@ -37,6 +40,9 @@ Rectangle {
                 from: 0
                 to: 1
                 easing.type: Easing.OutCubic
+                duration: 1000
+            }
+            PauseAnimation {
                 duration: 1000
             }
             NumberAnimation {

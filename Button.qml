@@ -13,7 +13,7 @@ Rectangle {
     anchors.margins: 10
     border.color: "white"
     border.width: 2
-    color: buttonID.pressed ? "#ffffff" : "white"
+    color: buttonID.pressed ? "#77ffffff" : "white"
 
 
     FutureText {
