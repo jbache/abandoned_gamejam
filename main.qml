@@ -47,7 +47,7 @@ Window {
         z: 1
         text: "Team Rocket Science"
         anchors.fill: parent
-        opacity: 1
+        opacity: 0
     }
 
     Splash {
